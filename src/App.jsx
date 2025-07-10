@@ -1,32 +1,22 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import PillList from "./pages/PillList";
+import AddPillForm from "./components/AddPillForm";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [pills, setPills] = useState([]);
+
+  const handleAdd = (pill) => {
+    setPills([...pills, pill]);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-black">
+      <div className="flex-1 flex flex-col justify-center w-full p-4 bg-red">
+        <h1 className="text-2xl font-bold mb-4">복약 알림 MVP</h1>
+        <AddPillForm onAdd={handleAdd} />
+        <PillList pills={pills} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>{count}</button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   );
 }
 

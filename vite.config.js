@@ -15,7 +15,7 @@ export default defineConfig({
         background_color: "#ffffff",
         theme_color: "#10b981",
         icons: [
-          {AAAAAAAAAAAAAAAAAAAAAA
+          {
             src: "/192.png",
             sizes: "192x192",
             type: "image/png",
